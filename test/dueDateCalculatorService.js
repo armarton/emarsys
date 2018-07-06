@@ -27,7 +27,7 @@
     endTwoWeekends: '2018-07-16T09:30',
     endDay: '2018-07-04T09:30',
     notEnoughDays: '2018-07-09T09:30',
-    justInTime: '2018-07-04T09:00',
+    justInTime: '2018-07-03T17:00',
     nextYear: '2019-07-02T10:00'
   };
 
@@ -46,7 +46,7 @@
     nextYear: 2080
   };
 
-  describe.only('Due Date Calculator', function(){
+  describe('Due Date Calculator', function(){
     describe('Duration',function(){
       it('is zero long', function(){
         expect(dueDateCalculatorService.CalculateDueDate(WORKDAYS.tuesday, TURNAROUNDS.zero)).to.been.equal(WORKDAYS.tuesday);
@@ -58,6 +58,7 @@
       });
 
       it('is only on the current business day', function(){
+        debugger;
         expect(dueDateCalculatorService.CalculateDueDate(WORKDAYS.tuesday, TURNAROUNDS.currentDay)).to.been.equal(RESULT.currentDay);
       });
 
@@ -94,7 +95,7 @@
       });
 
       it('just ends on week after next week, contains 2 weekends',function(){
-        expect(dueDateCalculatorService.CalculateDueDate(WORKDAYS.fridayAfternoon, TURNAROUNDS.endTwoWeekends)).to.been.equal(RESULT.notEnoughDays);
+        expect(dueDateCalculatorService.CalculateDueDate(WORKDAYS.fridayAfternoon, TURNAROUNDS.endTwoWeekends)).to.been.equal(RESULT.endTwoWeekends);
       });
 
       it('finsihes in the end of the workday', function(){

@@ -21,10 +21,10 @@
       throw new Error(EXCEPTIONS.outWorkdays);
     }
     else if(
-      submitDate.getHours() + 1 < WORKHOURS.start.hours ||
-      submitDate.getHours() + 1 > WORKHOURS.end.hours ||
-      (submitDate.getHours() + 1 === WORKHOURS.start.hours && submitDate.getMinutes() < WORKHOURS.start.minutes) ||
-      (submitDate.getHours() + 1 === WORKHOURS.end.hours && submitDate.getMinutes() > WORKHOURS.end.minutes)
+      submitDate.getHours() < WORKHOURS.start.hours ||
+      submitDate.getHours() > WORKHOURS.end.hours ||
+      (submitDate.getHours() === WORKHOURS.start.hours && submitDate.getMinutes() < WORKHOURS.start.minutes) ||
+      (submitDate.getHours() === WORKHOURS.end.hours && submitDate.getMinutes() > WORKHOURS.end.minutes)
     ) {
       throw new Error(EXCEPTIONS.outWorkhours);
     }

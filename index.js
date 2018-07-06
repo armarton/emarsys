@@ -1,9 +1,3 @@
-var _ = require('lodash');
-var calculateDueDate = function (submitDate, turnaroundTime){
-  var dueDateTime;
-  
-  return dueDateTime;
-};
+var dueDateCalculator = require('./services/dueDateCalculatorService');
 
-
-exports.CalculateDueDate = calculateDueDate;
+exports.CalculateDueDate = dueDateCalculator.CalculateDueDate;
